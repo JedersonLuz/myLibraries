@@ -4,6 +4,11 @@
 #include <string.h>
 #include <stdbool.h>
 
+char * input (const char * format, ...);
+int str4int (char *message);
+float str4float (char *message);
+void sysPause (const char * format, ...);
+
 char * input (const char * format, ...) {
   char *value = malloc(255);
   va_list arg;

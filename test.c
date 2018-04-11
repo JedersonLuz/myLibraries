@@ -1,9 +1,22 @@
 #include "in_out.h"
+#include "dataStructures.h"
 
 int main () {
-    int value = str4int(input("Informe %d valor: ", 1));
+    List *list;
 
-    printf("%d\n", value);
+    list = newList();
+    
+    int value = str4int(input("Digite um valor: "));
+    void * val = &value;
 
+    listadd(list, &value);
+
+    //printf("Size: %d\n", listlen(list));
+    
+    //value = (int*) listget(list, 0);
+    
+    printf("%d\n", *value));
+    printf("%d\n", *((int*) listget(list, 0)));
+    
     return 0;
 }
