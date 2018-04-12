@@ -8,6 +8,7 @@ char * input (const char * format, ...);
 int str4int (char *message);
 float str4float (char *message);
 void sysPause (const char * format, ...);
+void printerr(const char * format, ...);
 
 char * input (const char * format, ...) {
   char *value = malloc(255);
@@ -62,4 +63,12 @@ void sysPause (const char * format, ...) {
 
   setbuf(stdin, NULL);
   getchar();
+}
+
+void printerr(const char * format, ...) {
+  va_list arg;
+
+  va_start (arg, format);
+  vfprintf (stderr, format, arg);
+  va_end (arg);
 }
