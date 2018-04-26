@@ -1,14 +1,16 @@
+// 
+// util.c
+// testes
+// 
+// Created by Jederson Sousa Luz
+// Copyrigths ® 2018 Jederson Sousa Luz
+//
+
 #include <stdio.h>
 #include <stdlib.h>
 #include <stdarg.h>
 #include <string.h>
-#include <stdbool.h>
-
-char * input (const char * format, ...);
-int str4int (char *message);
-float str4float (char *message);
-void sysPause (const char * format, ...);
-void printerr(const char * format, ...);
+#include "util.h"
 
 char * input (const char * format, ...) {
   char *value = malloc(255);

@@ -1,4 +1,6 @@
-#include "in_out.h"
+#include <stdio.h>
+#include <stdlib.h>
+#include "util.h"
 #include "dataStructures.h"
 
 void cadastrar(List * list);
@@ -19,6 +21,7 @@ int main () {
         printf("3 - Listar\n");
         printf("4 - Ver Tamanho\n");
         printf("5 - Deletar\n");
+        printf("6 - Deletar Tudo\n");
         printf("0 - Sair\n");
         option = str4int(input(""));
 
@@ -38,6 +41,8 @@ int main () {
             case 5:
                 deletar(list);
                 break;
+            case 6:
+                listdeleteall(list);
             case 0:
                 break;
             default:
