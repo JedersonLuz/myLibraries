@@ -16,10 +16,23 @@ List newList () {
   return (List) malloc (sizeof(List));
 }
 
-void listadd (List list, void * value) {
+void listadd (List list, void * value, char type) {
   List link = (List) malloc(sizeof(List));
   while (list->next != NULL) {
     list = list->next;
+  }
+  if (type == 'i') {
+    list->type = type;// int
+  } else if (type == 'f') {
+    list->type = type;// float
+  } else if (type == 'd') {
+    list->type = type;// double
+  } else if (type == 'c') {
+    list->type = type;// char
+  } else if (type == 's') {
+    list->type = type;// string
+  } else if (type == 'l') {
+    list->type = type;// long
   }
   list->value = value;
   list->next = link;
@@ -32,6 +45,7 @@ void * listget (List list, int index) {
     return NULL;
   }
   for(int i = 0; i < index; i++) {
+    if (list->next == NULL) return NULL;
     link = link->next;
   }
   return link->value;
@@ -44,17 +58,19 @@ void listdelete (List list, int index) {
   if ((index < 0) || (index > listlen(list))) {
     return;
   }
-  for(int i = 0; i < index; i++) {
+  if (listlen(list) != 0) {
+    for(int i = 0; i < index; i++) {
     prev = link;
     link = link->next;
-  }
+    }
 
-  if (prev != NULL) {
-    prev->next = link->next;
-    free(link->value);
-    free(link);
-  } else {
-    *link = *link->next;
+    if (prev != NULL) {
+      prev->next = link->next;
+      free(link->value);
+      free(link);
+    } else {
+      *link = *link->next;
+    }
   }
 }
 
@@ -75,7 +91,20 @@ void listprint(List list) {
     int size = listlen(list);
     printf("[");
     for(int i = 0; i < size; i++) {
-        printf("%d", *((int*) listget(list, i)));
+        if (list->type == 'i') {
+          printf("%d", *((int*) list->value));// int
+        } else if (list->type == 'f') {
+          printf("%f", *((float*) list->value));// float
+        } else if (list->type == 'd') {
+          printf("%f", *((double*) list->value));// double
+        } else if (list->type == 'c') {
+          printf("%c", *((char*) list->value));// char
+        } else if (list->type == 's') {
+          printf("%s", (char*) list->value);// string
+        } else if (list->type == 'l') {
+          printf("%ld", *((long*) list->value));// long
+        }
+        list = list->next;
         if (i < size-1) {
             printf(",");
         }

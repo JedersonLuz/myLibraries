@@ -14,7 +14,7 @@ typedef struct List {
 
 List newList ();
 
-void listadd (List list, void * value);
+void listadd (List list, void * value, char type);
 
 void * listget (List list, int index);
 
