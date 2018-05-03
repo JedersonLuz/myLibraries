@@ -3,13 +3,13 @@
 #include "util.h"
 #include "dataStructures.h"
 
-void cadastrar(List * list);
-void recuperar(List * list);
-void deletar(List * list);
-void verTamanho(List * list);
+void cadastrar(List list);
+void recuperar(List list);
+void deletar(List list);
+void verTamanho(List list);
 
 int main () {
-    List *list;
+    List list;
 
     list = newList();
 

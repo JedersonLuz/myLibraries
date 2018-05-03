@@ -10,18 +10,18 @@ typedef struct List {
   void * value;
   char type;
   struct List * next;
-}List;
+}*List;
 
-List * newList ();
+List newList ();
 
-void listadd (List * list, void * value);
+void listadd (List list, void * value);
 
-void * listget (List * list, int index);
+void * listget (List list, int index);
 
-void listdelete (List * list, int index);
+void listdelete (List list, int index);
 
-void listdeleteall (List * list);
+void listdeleteall (List list);
 
-void listprint(List * list);
+void listprint(List list);
 
-int listlen (List * list);
+int listlen (List list);

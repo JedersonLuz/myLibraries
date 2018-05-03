@@ -12,12 +12,12 @@
 #include "dataStructures.h"
 #include "util.h"
 
-List * newList () {
-  return (List*) malloc (sizeof(List));
+List newList () {
+  return (List) malloc (sizeof(List));
 }
 
-void listadd (List * list, void * value) {
-  List * link = (List*) malloc(sizeof(List));
+void listadd (List list, void * value) {
+  List link = (List) malloc(sizeof(List));
   while (list->next != NULL) {
     list = list->next;
   }
@@ -25,8 +25,8 @@ void listadd (List * list, void * value) {
   list->next = link;
 }
 
-void * listget (List * list, int index) {
-  List * link = (List*) malloc(sizeof(List));
+void * listget (List list, int index) {
+  List link = (List) malloc(sizeof(List));
   link = list;
   if ((index < 0) || (index > listlen(list))) {
     return NULL;
@@ -37,9 +37,9 @@ void * listget (List * list, int index) {
   return link->value;
 }
 
-void listdelete (List * list, int index) {
-  List * link;
-  List * prev = NULL;
+void listdelete (List list, int index) {
+  List link;
+  List prev = NULL;
   link = list;
   if ((index < 0) || (index > listlen(list))) {
     return;
@@ -58,7 +58,7 @@ void listdelete (List * list, int index) {
   }
 }
 
-void listdeleteall (List * list) {
+void listdeleteall (List list) {
   if (list->next == NULL) {
     list->next = NULL;
     free(list->value);
@@ -71,7 +71,7 @@ void listdeleteall (List * list) {
   }
 }
 
-void listprint(List * list) {
+void listprint(List list) {
     int size = listlen(list);
     printf("[");
     for(int i = 0; i < size; i++) {
@@ -84,7 +84,7 @@ void listprint(List * list) {
     sysPause("Press ENTER to continue.");
 }
 
-int listlen (List * list) {
+int listlen (List list) {
   int len = 0;
 
   while(list->next != NULL) {
