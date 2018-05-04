@@ -1,7 +1,7 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include "util.h"
-#include "dataStructures.h"
+#include "genericList.h"
 
 void cadastrar(List list);
 void recuperar(List list);
