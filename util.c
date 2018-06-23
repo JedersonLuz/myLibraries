@@ -37,6 +37,7 @@ int str4int (char *message) {
       if (!strcmp(message, "0"))
         break;
     }
+    free(message);
     return value;
   }
 }
@@ -52,6 +53,7 @@ float str4float (char *message) {
       if (!strcmp(message, "0"))
         break;
     }
+    free(message);
     return value;
   }
 }
